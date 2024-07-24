@@ -72,3 +72,5 @@ group :development do
 
   gem 'rubocop-airbnb'
 end
+
+gem 'devise'
