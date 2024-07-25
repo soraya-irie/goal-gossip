@@ -1,21 +1,41 @@
 <header class="site-header">
   <h1 class="site-title"><%= link_to "Goal gossip", root_path, class: "site-title-link" %></h1>
   <nav class="main-nav">
-    <ul class="nav-list">
-      <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "About", "#", class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
-    </ul>
+    <% if user_signed_in? %>
+      <ul class="nav-list">
+        <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "設定", "#", class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to current_user.name, "#", class: "nav-link" %></li>
+      </ul>
+    <% else %>
+      <ul class="nav-list">
+        <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "About", "#", class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "ゲストログイン", "#", class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
+      </ul>
+    <% end %>
   </nav>
   <nav class="sp-nav">
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", "#" %></li>
-      <li><%= link_to "ログイン", "#" %></li>
-      <li><%= link_to "新規登録", "#" %></li>
-      <li class="close"><span>閉じる</span></li>
-    </ul>
+    <% if user_signed_in? %>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "設定", "#" %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to current_user.name, "#" %></li>
+      </ul>
+    <% else %>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", "#" %></li>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+        <li><%= link_to "ゲストログイン", "#" %></li>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <li class="close"><span>閉じる</span></li>
+      </ul>
+    <% end %>
   </nav>
   <div id="hamburger">
     <span></span>
