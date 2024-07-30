@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  GUEST_USER_EMAIL = "guest@example.com"
-  USER_NAME = "ゲスト"
+  GUEST_USER_EMAIL = "guest@example.com".freeze
+  USER_NAME = "ゲスト".freeze
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
