@@ -1,8 +1,11 @@
 <input id="address" type="textbox" value="">
 <input type="button" value="送信" onclick="codeAddress()">
+<div id="addressDisplay"></div>
 <div id="map"></div>
 
 <script>
+  const addressDis = document.getElementById('addressDisplay')
+
   function initMap() {
     national_stadium = {lat: 35.677824, lng: 139.714541}
 
@@ -19,7 +22,6 @@
 
   function codeAddress(){
     geocoder = new google.maps.Geocoder();
-
     inputAddress = document.getElementById('address').value;
 
     geocoder.geocode({ 'address': inputAddress}, function(results, status){
@@ -29,6 +31,7 @@
           position: results[0].geometry.location,
           map: map,
         });
+        addressDis.innerHTML = results[0].formatted_address;
       } else {
         alert("該当する結果がありませんでした：" + status);
       }
