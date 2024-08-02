@@ -2,6 +2,9 @@
   <h1 class="title">Goal gossip</h1>
   <p class="subtitle">サッカーの試合を観戦した感想を投稿してみよう！</p>
 </div>
+<div class="new-post-button-container">
+  <%= link_to "感想を投稿する", new_post_path, class: "new-post-button" %>
+</div>
 <input id="address" type="textbox" value="">
 <input type="button" value="送信" onclick="codeAddress()">
 <div id="addressDisplay"></div>
