@@ -2,6 +2,7 @@ class User < ApplicationRecord
   GUEST_USER_EMAIL = "guest@example.com".freeze
   USER_NAME = "ゲスト".freeze
 
+  has_many :posts, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
