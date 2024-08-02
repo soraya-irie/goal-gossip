@@ -2,9 +2,24 @@
   <h1 class="title">Goal gossip</h1>
   <p class="subtitle">サッカーの試合を観戦した感想を投稿してみよう！</p>
 </div>
-<div class="new-post-button-container">
-  <%= link_to "感想を投稿する", new_post_path, class: "new-post-button" %>
-</div>
+<% if user_signed_in? %>
+  <div class="new-post-link-container">
+    <%= link_to "感想を投稿する", new_post_path, class: "new-post-link" %>
+  </div>
+<% else %>
+  <div class="auth-options-container">
+    <div class="auth-link-container">
+      <%= link_to "新規登録フォームへ", new_user_registration_path, class: "auth-link" %>
+    </div>
+    <div class="auth-link-container">
+      <%= link_to "ログインフォームへ", new_user_session_path, class: "auth-link" %>
+    </div>
+    <div class="auth-link-container">
+      <%= link_to "ゲストログイン", users_guest_sign_in_path, data: { turbo_method: :post }, class: "auth-link" %>
+    </div>
+  </div>
+<% end %>
+
 <input id="address" type="textbox" value="">
 <input type="button" value="送信" onclick="codeAddress()">
 <div id="addressDisplay"></div>
