@@ -25,8 +25,31 @@
       <%= form.label :comment, "観戦した感想" %>
       <%= form.text_area :comment, class: "form" %>
     </div>
+
+    <div id="map"></div>
+
     <div class="new-post-button-container">
       <%= form.submit "投稿する", class: "new-post-button", class: "form-button" %>
     </div>
   <% end %>
 </div>
+
+<script>
+  function initMap() {
+    national_stadium = {lat: 35.677824, lng: 139.714541} // latが緯度、lngが経度
+
+    // new google.maps.Mapで地図を表示
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: national_stadium, // 地図の中心になる座標を指定
+      zoom: 12, // 地図のズームレベルを指定
+    });
+
+    // new google.maps.Markerでピンを表示
+    marker = new google.maps.Marker({
+      position: national_stadium, // ピンの表示位置を座標で指定
+      map: map // ピンを表示する地図を指定
+    });
+  }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap" async defer></script>
