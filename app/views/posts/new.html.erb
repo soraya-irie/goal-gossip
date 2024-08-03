@@ -1,17 +1,20 @@
-<%= text_field_tag :stadium, nil, id: 'address' %>
-<%= button_tag "検索", type: "button", onclick: "codeAddress()" %>
+<div class="search-form-container">
+  <%= label_tag :stadium, "あなたが観戦したスタジアムを入力してください", class: "search-form-label" %>
+  <%= text_field_tag :stadium, nil, id: 'address', placeholder: "例: 国立競技場", class: "search-form-input" %>
+  <%= button_tag "入力", type: "button", onclick: "codeAddress()", class: "search-form-button" %>
+</div>
 
 <div class="new-post-form">
   <%= form_with model: @post do |form| %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <div class="new-post-field">
       <%= form.label :stadium_name, "スタジアム名" %>
-      <%= form.text_field :stadium_name, class: "form" %>
+      <%= form.text_field :stadium_name, class: "form", placeholder: "自動で入力されます" %>
     </div>
 
     <div class="new-post-field">
       <%= form.label :address, "住所" %>
-      <%= form.text_field :address, class: "form" %>
+      <%= form.text_field :address, class: "form", placeholder: "自動で入力されます" %>
     </div>
 
     <div class="new-post-field">
@@ -29,7 +32,10 @@
       <%= form.text_area :comment, class: "form" %>
     </div>
 
-    <div id="map"></div>
+    <div class="new-post-field">
+      <%= label_tag :map, "観戦したスタジアムの場所" %>
+      <div id="map"></div>
+    </div>
 
     <div class="new-post-button-container">
       <%= form.submit "投稿する", class: "new-post-button", class: "form-button" %>

@@ -1,4 +1,32 @@
 // 新規投稿ページ
+.search-form-container {
+  text-align: center;
+  margin-top: 20px;
+}
+.search-form-label {
+  display: block;
+  margin: 30px 10px;
+  font-size: 20px;
+}
+
+.search-form-input {
+  width: 250px;
+  height: 40px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.search-form-button {
+  border: none;
+  padding: 8px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
 .new-post-form {
   max-width: 800px;
   background-color: #f9f9f9;
