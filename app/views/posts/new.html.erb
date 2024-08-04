@@ -67,9 +67,6 @@
   }
 
   function codeAddress() {
-    // ピンを非表示にする
-    marker.setVisible(false);
-
     const inputAddress = document.getElementById('address').value;
 
     // geocoder.geocodeでスタジアム名から緯度経度を取得
@@ -77,10 +74,8 @@
       if (status === 'OK' && results[0]) {
         const location = results[0].geometry.location; // results[0].geometry.locationで緯度経度を取得
         map.setCenter(location); // map.setCenterでスタジアム名の座標を指定
-        marker = new google.maps.Marker({
-          position: results[0].geometry.location,
-          map: map,
-        });
+        marker.setPosition(location); // marker.setPositionでピンの位置を指定
+        marker.setVisible(true); // ピンを表示
         nameDis.value = inputAddress; // スタジアム名を取得
         addressDis.value = results[0].formatted_address; // 住所を取得
       } else {
