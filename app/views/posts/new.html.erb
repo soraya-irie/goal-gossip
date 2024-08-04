@@ -49,17 +49,17 @@
   const addressDis = document.getElementById('post_address')
 
   function initMap() {
-    const national_stadium = {lat: 35.677824, lng: 139.714541} // latが緯度、lngが経度
+    const nationalStadium = {lat: 35.677824, lng: 139.714541} // latが緯度、lngが経度
 
     // new google.maps.Mapで地図を表示
     map = new google.maps.Map(document.getElementById('map'), {
-      center: national_stadium, // 地図の中心になる座標を指定
+      center: nationalStadium, // 地図の中心になる座標を指定
       zoom: 14, // 地図のズームレベルを指定
     });
 
     // new google.maps.Markerでピンを表示
     marker = new google.maps.Marker({
-      position: national_stadium, // ピンの表示位置を座標で指定
+      position: nationalStadium, // ピンの表示位置を座標で指定
       map: map, // ピンを表示する地図を指定
     });
 
