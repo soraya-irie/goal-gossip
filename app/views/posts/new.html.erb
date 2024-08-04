@@ -54,10 +54,7 @@
       center: nationalStadium,
       zoom: 14,
     });
-    marker = new google.maps.Marker({
-      position: nationalStadium,
-      map: map,
-    });
+    marker = new google.maps.Marker({ position: nationalStadium, map });
     geocoder = new google.maps.Geocoder();
   }
 
