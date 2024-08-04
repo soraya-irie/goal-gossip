@@ -50,23 +50,19 @@
 
   function initMap() {
     const nationalStadium = {lat: 35.677824, lng: 139.714541}
-
     map = new google.maps.Map(document.getElementById('map'), {
       center: nationalStadium,
       zoom: 14,
     });
-
     marker = new google.maps.Marker({
       position: nationalStadium,
       map: map,
     });
-
     geocoder = new google.maps.Geocoder();
   }
 
   function codeAddress() {
     const address = document.getElementById('address').value;
-
     geocoder.geocode({ address }, (results, status) => {
       if (status === 'OK' && results[0]) {
         const location = results[0].geometry.location;
