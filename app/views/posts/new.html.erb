@@ -70,7 +70,7 @@
     const inputAddress = document.getElementById('address').value;
 
     // geocoder.geocodeでスタジアム名から緯度経度を取得
-    geocoder.geocode({ 'address': inputAddress }, (results, status) => {
+    geocoder.geocode({ address: inputAddress }, (results, status) => {
       if (status === 'OK' && results[0]) {
         const location = results[0].geometry.location; // results[0].geometry.locationで緯度経度を取得
         map.setCenter(location); // map.setCenterでスタジアム名の座標を指定
@@ -78,7 +78,7 @@
         nameDis.value = inputAddress; // スタジアム名を取得
         addressDis.value = results[0].formatted_address; // 住所を取得
       } else {
-        alert("該当する結果がありませんでした：" + status);
+        alert(`該当する結果がありませんでした：${status}`);
       }
     });
   }
