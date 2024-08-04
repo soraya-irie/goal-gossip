@@ -64,6 +64,8 @@
   }
 
   function codeAddress() {
+    // ピンを非表示にする
+    marker.setVisible(false);
     // Geocoding APIを利用
     geocoder = new google.maps.Geocoder();
 
