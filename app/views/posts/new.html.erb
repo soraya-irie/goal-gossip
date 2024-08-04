@@ -44,7 +44,7 @@
 </div>
 
 <script>
-  let map, marker;
+  let map, marker, geocoder;
   const nameDis = document.getElementById('post_stadium_name')
   const addressDis = document.getElementById('post_address')
 
@@ -62,13 +62,13 @@
       position: national_stadium, // ピンの表示位置を座標で指定
       map: map, // ピンを表示する地図を指定
     });
+
+    geocoder = new google.maps.Geocoder(); // Geocoding APIを利用
   }
 
   function codeAddress() {
     // ピンを非表示にする
     marker.setVisible(false);
-    // Geocoding APIを利用
-    geocoder = new google.maps.Geocoder();
 
     inputAddress = document.getElementById('address').value;
 
