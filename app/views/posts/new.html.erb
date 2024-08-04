@@ -65,14 +65,14 @@
   }
 
   function codeAddress() {
-    const inputAddress = document.getElementById('address').value;
+    const address = document.getElementById('address').value;
 
-    geocoder.geocode({ address: inputAddress }, (results, status) => {
+    geocoder.geocode({ address }, (results, status) => {
       if (status === 'OK' && results[0]) {
         const location = results[0].geometry.location;
         map.setCenter(location);
         marker.setPosition(location);
-        nameDis.value = inputAddress;
+        nameDis.value = address;
         addressDis.value = results[0].formatted_address;
       } else {
         alert(`該当する結果がありませんでした：${status}`);
