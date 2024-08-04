@@ -70,11 +70,11 @@
     // ピンを非表示にする
     marker.setVisible(false);
 
-    inputAddress = document.getElementById('address').value;
+    const inputAddress = document.getElementById('address').value;
 
     // geocoder.geocodeでスタジアム名から緯度経度を取得
-    geocoder.geocode({ 'address': inputAddress }, function(results, status) {
-      if (status == 'OK') {
+    geocoder.geocode({ 'address': inputAddress }, (results, status) => {
+      if (status === 'OK' && results[0]) {
         // map.setCenterでスタジアム名の座標を指定
         map.setCenter(results[0].geometry.location); // results[0].geometry.locationで緯度経度を取得
         marker = new google.maps.Marker({
