@@ -44,11 +44,12 @@
 </div>
 
 <script>
+  let map, marker;
   const nameDis = document.getElementById('post_stadium_name')
   const addressDis = document.getElementById('post_address')
 
   function initMap() {
-    national_stadium = {lat: 35.677824, lng: 139.714541} // latが緯度、lngが経度
+    const national_stadium = {lat: 35.677824, lng: 139.714541} // latが緯度、lngが経度
 
     // new google.maps.Mapで地図を表示
     map = new google.maps.Map(document.getElementById('map'), {
