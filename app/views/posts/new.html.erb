@@ -75,8 +75,8 @@
     // geocoder.geocodeでスタジアム名から緯度経度を取得
     geocoder.geocode({ 'address': inputAddress }, (results, status) => {
       if (status === 'OK' && results[0]) {
-        // map.setCenterでスタジアム名の座標を指定
-        map.setCenter(results[0].geometry.location); // results[0].geometry.locationで緯度経度を取得
+        const location = results[0].geometry.location; // results[0].geometry.locationで緯度経度を取得
+        map.setCenter(location); // map.setCenterでスタジアム名の座標を指定
         marker = new google.maps.Marker({
           position: results[0].geometry.location,
           map: map,
