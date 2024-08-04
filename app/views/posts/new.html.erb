@@ -49,34 +49,31 @@
   const addressDis = document.getElementById('post_address')
 
   function initMap() {
-    const nationalStadium = {lat: 35.677824, lng: 139.714541} // latが緯度、lngが経度
+    const nationalStadium = {lat: 35.677824, lng: 139.714541}
 
-    // new google.maps.Mapで地図を表示
     map = new google.maps.Map(document.getElementById('map'), {
-      center: nationalStadium, // 地図の中心になる座標を指定
-      zoom: 14, // 地図のズームレベルを指定
+      center: nationalStadium,
+      zoom: 14,
     });
 
-    // new google.maps.Markerでピンを表示
     marker = new google.maps.Marker({
-      position: nationalStadium, // ピンの表示位置を座標で指定
-      map: map, // ピンを表示する地図を指定
+      position: nationalStadium,
+      map: map,
     });
 
-    geocoder = new google.maps.Geocoder(); // Geocoding APIを利用
+    geocoder = new google.maps.Geocoder();
   }
 
   function codeAddress() {
     const inputAddress = document.getElementById('address').value;
 
-    // geocoder.geocodeでスタジアム名から緯度経度を取得
     geocoder.geocode({ address: inputAddress }, (results, status) => {
       if (status === 'OK' && results[0]) {
-        const location = results[0].geometry.location; // results[0].geometry.locationで緯度経度を取得
-        map.setCenter(location); // map.setCenterでスタジアム名の座標を指定
-        marker.setPosition(location); // marker.setPositionでピンの位置を指定
-        nameDis.value = inputAddress; // スタジアム名を取得
-        addressDis.value = results[0].formatted_address; // 住所を取得
+        const location = results[0].geometry.location;
+        map.setCenter(location);
+        marker.setPosition(location);
+        nameDis.value = inputAddress;
+        addressDis.value = results[0].formatted_address;
       } else {
         alert(`該当する結果がありませんでした：${status}`);
       }
