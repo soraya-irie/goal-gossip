@@ -1,4 +1,7 @@
-document.addEventListener('turbo:load', () => {
+document.addEventListener('turbo:load', initialize);
+document.addEventListener('turbo:render', initialize);
+
+function initialize() {
   const mapElement = document.getElementById('map');
   const searchButton = document.querySelector('.search-form-button');
   const nameDis = document.getElementById('post_stadium_name');
@@ -37,7 +40,8 @@ document.addEventListener('turbo:load', () => {
 
   initMap();
   addEventListeners();
-});
+}
 
 window.initMap = initMap;
 window.codeAddress = codeAddress;
+window.addEventListeners = addEventListeners;
