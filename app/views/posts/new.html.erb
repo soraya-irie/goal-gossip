@@ -5,6 +5,17 @@
 </div>
 
 <div class="new-post-form">
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @post.errors.count%>件のエラーが発生しました</h2>
+
+      <ul>
+        <% @post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= form_with model: @post do |form| %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <div class="new-post-field">
