@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: '投稿が削除されました'
+    redirect_to root_path, notice: '投稿が削除されました', status: :see_other
   end
 
   private
