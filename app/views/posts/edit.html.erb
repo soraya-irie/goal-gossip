@@ -54,3 +54,7 @@
   <% end %>
 </div>
 
+<% content_for :js do %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap" async defer></script>
+  <%= javascript_import_module_tag "posts/new" %>
+<% end %>
