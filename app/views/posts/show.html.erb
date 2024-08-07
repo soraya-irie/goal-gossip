@@ -30,6 +30,13 @@
       <%= label_tag :map, "観戦したスタジアムの場所" %>
       <div id="map"></div>
     </div>
+
+    <% if @post.user_id == current_user.id %>
+      <div class="new-post-button-container">
+        <%= link_to "編集する", edit_post_path(@post), class: "form-button" %>
+        <%= link_to "削除する", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "投稿を削除してよろしいですか？" }, class: "form-button" %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
