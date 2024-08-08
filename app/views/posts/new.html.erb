@@ -1,3 +1,4 @@
+<div class="background-image">
 <div class="search-form-container">
   <%= label_tag :stadium, "あなたが観戦したスタジアムを入力してください", class: "search-form-label" %>
   <%= text_field_tag :stadium, nil, id: 'address', placeholder: "例: 国立競技場", class: "search-form-input" %>
@@ -54,7 +55,7 @@
     </div>
   <% end %>
 </div>
-
+</div>
 
 <% content_for :js do %>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap" async defer></script>
