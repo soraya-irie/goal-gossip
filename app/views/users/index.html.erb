@@ -1,39 +1,39 @@
 <div class="background-image">
-<div class="title-container">
-  <h1 class="title">Goal gossip</h1>
-  <p class="subtitle">サッカーの試合を観戦した感想を投稿してみよう！</p>
-</div>
-<% if user_signed_in? %>
-  <div class="new-post-link-container">
-    <%= link_to "感想を投稿する", new_post_path, class: "new-post-link" %>
+  <div class="title-container">
+    <h1 class="title">Goal gossip</h1>
+    <p class="subtitle">サッカーの試合を観戦した感想を投稿してみよう！</p>
   </div>
-<% else %>
-  <div class="auth-options-container">
-    <div class="auth-link-container">
-      <%= link_to "新規登録フォームへ", new_user_registration_path, class: "auth-link" %>
+  <% if user_signed_in? %>
+    <div class="new-post-link-container">
+      <%= link_to "感想を投稿する", new_post_path, class: "new-post-link" %>
     </div>
-    <div class="auth-link-container">
-      <%= link_to "ログインフォームへ", new_user_session_path, class: "auth-link" %>
-    </div>
-    <div class="auth-link-container">
-      <%= link_to "ゲストログイン", users_guest_sign_in_path, data: { turbo_method: :post }, class: "auth-link" %>
-    </div>
-  </div>
-<% end %>
-
-<div class="new-post-form">
-  <h2 class="form-title">~ 投稿一覧 ~</h2>
-  <% @posts.each do |post| %>
-    <div class="post-container">
-      <p class="user-name"><%= post.user.name %></p>
-      <p class="post-date"><%= post.created_at.strftime("%m/%d %H:%M") %></p>
-      <%= link_to post, class: 'post-details-link' do %>
-        <p class="post-details">スタジアム: <%= post.stadium_name %></p>
-        <p class="post-details">観戦日: <%= post.match_date.strftime("%m/%d") %></p>
-        <p class="post-details">応援したチーム: <%= post.supported_team %></p>
-      <% end %>
-      <p class="post-comment"><%= post.comment %></p>
+  <% else %>
+    <div class="auth-options-container">
+      <div class="auth-link-container">
+        <%= link_to "新規登録フォームへ", new_user_registration_path, class: "auth-link" %>
+      </div>
+      <div class="auth-link-container">
+        <%= link_to "ログインフォームへ", new_user_session_path, class: "auth-link" %>
+      </div>
+      <div class="auth-link-container">
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, data: { turbo_method: :post }, class: "auth-link" %>
+      </div>
     </div>
   <% end %>
-</div>
+
+  <div class="new-post-form">
+    <h2 class="form-title">~ 投稿一覧 ~</h2>
+    <% @posts.each do |post| %>
+      <div class="post-container">
+        <p class="user-name"><%= post.user.name %></p>
+        <p class="post-date"><%= post.created_at.strftime("%m/%d %H:%M") %></p>
+        <%= link_to post, class: 'post-details-link' do %>
+          <p class="post-details">スタジアム: <%= post.stadium_name %></p>
+          <p class="post-details">観戦日: <%= post.match_date.strftime("%m/%d") %></p>
+          <p class="post-details">応援したチーム: <%= post.supported_team %></p>
+        <% end %>
+        <p class="post-comment"><%= post.comment %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
