@@ -1,24 +1,24 @@
-<div class="login-form">
+<div class="new-post-form">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="login-form__field">
+    <div class="new-post-field">
       <%= f.label :email, "メールアドレス" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form" %>
     </div>
 
-    <div class="login-form__field">
+    <div class="new-post-field">
       <%= f.label :password, "パスワード" %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
-      <div class="login-form__field">
+      <div class="new-post-field">
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me, "ログイン状態を記憶する" %>
       </div>
     <% end %>
 
-    <div class="login-form__actions">
-      <%= f.submit "ログインする" %>
+    <div class="new-post-button-container">
+      <%= f.submit "ログインする", class: "form-button" %>
     </div>
   <% end %>
 

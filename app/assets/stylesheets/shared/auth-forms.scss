@@ -52,18 +52,6 @@
   }
 }
 
-.login-form {
-  @include auth-form-container;
-
-  &__field {
-    @include auth-form-field;
-  }
-
-  &__actions {
-    @include auth-form-actions;
-  }
-}
-
 .signup-form {
   @include auth-form-container;
 
