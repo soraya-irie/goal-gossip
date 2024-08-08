@@ -1,7 +1,7 @@
 .site-header {
   width: 100%;
   padding: 30px 4% 10px;
-  background-color: #fff;
+  background-color: #bc1616;
   position: sticky;
   top: 0;
   display: flex;
@@ -19,13 +19,14 @@
 
 .site-title-link, .nav-link {
   text-decoration: none;
-  color: #4b4b4b;
+  color: #fff;
 }
 
 .nav-list {
   list-style: none;
   margin: 0;
   display: flex;
+  color: #fff;
 }
 
 .nav-item {
@@ -72,7 +73,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #4b4b4b;
+    background-color: #fff;
     transform: translateY(-50%);
   }
 
@@ -84,7 +85,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #4b4b4b;
+    background-color: #fff;
   }
 
   #hamburger::after {
@@ -95,7 +96,7 @@
     left: 0;
     width: 70%;
     height: 2px;
-    background-color: #4b4b4b;
+    background-color: #fff;
   }
 
   /*スマホメニュー*/
@@ -115,13 +116,14 @@
 
   .sp-nav li span {
     font-size: 15px;
-    color: #fff;
   }
 
   .sp-nav li a,
   .sp-nav li span {
     display: block;
     padding: 20px 0;
+    color: #fff;
+    text-decoration: none;
   }
 
   /*-閉じるアイコンー*/
