@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'users#index'
+  resources :users, only: [:show]
   resources :posts, except: [:index]
   devise_for :users, controllers: {
     registrations: 'users/registrations',
