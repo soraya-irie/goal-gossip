@@ -3,41 +3,41 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
 
-    <div class="field">
+    <div class="new-post-field">
       <%= f.label :name, "ユーザーネーム" %><br />
-      <%= f.text_field :name, autofocus: true %>
+      <%= f.text_field :name, autofocus: true, class: "form" %>
     </div>
 
-    <div class="field">
+    <div class="new-post-field">
       <%= f.label :email, "メールアドレス" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <div class="field">
+    <div class="new-post-field">
       <%= f.label :password, "パスワード" %> <i>(変更しない場合は空欄のままにしてください)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form" %>
       <% if @minimum_password_length %>
         <br />
         <em><%= @minimum_password_length %> characters minimum</em>
       <% end %>
     </div>
 
-    <div class="field">
+    <div class="new-post-field">
       <%= f.label :password_confirmation, "確認用パスワード" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form" %>
     </div>
 
-    <div class="field">
+    <div class="new-post-field">
       <%= f.label :current_password, "現在のパスワード" %> <i>(変更内容を確認するために現在のパスワードが必要です)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "form" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "プロフィールを更新する" %>
+    <div class="new-post-button-container">
+      <%= f.submit "プロフィールを更新する", class: "form-button" %>
     </div>
   <% end %>
 
