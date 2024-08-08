@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.includes(:posts).all
+    @posts = Post.includes(:user).order(created_at: :desc)
   end
 
   def show
