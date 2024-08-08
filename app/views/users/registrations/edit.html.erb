@@ -1,3 +1,4 @@
+<div class="background-image">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 <div class="new-post-form">
   <h2 class="form-title">~ プロフィールを編集する ~</h2>
@@ -47,4 +48,5 @@
   <div><%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
 
   <%= link_to "戻る", :back %>
+</div>
 </div>
