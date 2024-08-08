@@ -27,6 +27,12 @@
   margin-left: 10px;
 }
 
+.background-image {
+  background-image: url(image_path("soccer-field.avif"));
+  background-position: center;
+  padding: 20px;
+}
+
 .new-post-form {
   max-width: 800px;
   background-color: #f9f9f9;
