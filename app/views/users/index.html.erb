@@ -20,15 +20,18 @@
   </div>
 <% end %>
 
-<% @posts.each do |post| %>
-  <div class="post-container">
-    <p class="user-name"><%= post.user.name %></p>
-    <p class="post-date"><%= post.created_at.strftime("%m/%d %H:%M") %></p>
-    <%= link_to post, class: 'post-details-link' do %>
-      <p class="post-details">スタジアム: <%= post.stadium_name %><p>
-      <p class="post-details">観戦日: <%= post.match_date.strftime("%m/%d") %></p>
-      <p class="post-details">応援したチーム: <%= post.supported_team %></p>
-    <% end %>
-    <p class="post-comment"><%= post.comment %></p>
-  </div>
-<% end %>
+<div class="new-post-form">
+  <h2 class="form-title">~ 投稿一覧 ~</h2>
+  <% @posts.each do |post| %>
+    <div class="post-container">
+      <p class="user-name"><%= post.user.name %></p>
+      <p class="post-date"><%= post.created_at.strftime("%m/%d %H:%M") %></p>
+      <%= link_to post, class: 'post-details-link' do %>
+        <p class="post-details">スタジアム: <%= post.stadium_name %><p>
+        <p class="post-details">観戦日: <%= post.match_date.strftime("%m/%d") %></p>
+        <p class="post-details">応援したチーム: <%= post.supported_team %></p>
+      <% end %>
+      <p class="post-comment"><%= post.comment %></p>
+    </div>
+  <% end %>
+</div>
