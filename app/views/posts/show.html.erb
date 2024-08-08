@@ -1,4 +1,5 @@
 <div class="new-post-form">
+  <h2 class="form-title">~ 観戦記録の詳細 ~</h2>
   <%= form_with model: @post do |form| %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <div class="new-post-field">
