@@ -1,5 +1,5 @@
 <div class="background-image">
-  <div class="new-post-form">
+  <div class="form-container">
     <h2 class="form-title">~ 観戦記録の詳細 ~</h2>
     <%= form_with model: @post do |form| %>
       <%= form.hidden_field :user_id, value: current_user.id %>
