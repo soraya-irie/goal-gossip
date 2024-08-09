@@ -15,6 +15,9 @@
           </div>
         <% end %>
         <p class="post-comment"><%= post.comment %></p>
+        <div class="post-footer">
+          <%= link_to "詳細を見る", post_path(post), class: "post-footer-link" %>
+        </div>
       </div>
     <% end %>
   </div>

@@ -128,3 +128,23 @@
 .post-comment {
   margin: 16px;
 }
+
+.post-footer {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.post-footer-link {
+  font-size: 1rem;
+  color: #4CAF50;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+}
