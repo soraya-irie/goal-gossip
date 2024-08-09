@@ -1,5 +1,4 @@
 <div class="background-image">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
   <div class="form-container">
     <h2 class="form-title">~ プロフィールを編集する ~</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -42,8 +41,6 @@
         <%= f.submit "プロフィールを更新する", class: "form-button" %>
       </div>
     <% end %>
-
-    <h3>アカウントを削除する</h3>
 
     <div><%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
 
