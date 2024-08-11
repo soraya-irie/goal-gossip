@@ -74,3 +74,4 @@ group :development do
 end
 
 gem 'devise'
+gem 'pagy', '~>9.0'
