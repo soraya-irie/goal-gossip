@@ -40,6 +40,8 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   margin: 50px auto;
   padding: 20px;
+  position: relative;
+
 }
 
 .form-title {
@@ -77,4 +79,10 @@
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
+}
+
+.links-container {
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
 }

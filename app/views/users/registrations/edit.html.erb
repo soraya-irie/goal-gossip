@@ -42,8 +42,9 @@
       </div>
     <% end %>
 
-    <div><%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
-
+    <div class="links-container">
+      <div><%= link_to "削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
+    </div>
     <%= link_to "戻る", :back %>
   </div>
 </div>
