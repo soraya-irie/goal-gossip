@@ -86,3 +86,30 @@
   right: 20px;
   font-size: 20px;
 }
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form-label {
+  width: 150px;
+  margin-right: 10px;
+}
+
+.form-input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+.submit-button,
+.reset-link {
+  margin: 20px;
+}

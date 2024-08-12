@@ -12,6 +12,6 @@ class Post < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["stadium_name", "address", "match_date", "supported_team", "created_at"]
+    ["stadium_name", "address", "match_date", "supported_team", "comment", "created_at"]
   end
 end
