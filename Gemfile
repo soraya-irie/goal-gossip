@@ -75,3 +75,4 @@ end
 
 gem 'devise'
 gem 'pagy', '~>9.0'
+gem 'ransack'
