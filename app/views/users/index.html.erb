@@ -22,7 +22,7 @@
   <% end %>
 
   <div class="form-container">
-    <%= search_form_for @q, url: root_path do |f| %>
+    <%= search_form_for @q, url: search_users_path do |f| %>
       <%= f.label :stadium_name_cont, "スタジアム名" %>
       <%= f.search_field :stadium_name_cont %>
       <%= f.label :address_cont, "住所" %>
@@ -32,6 +32,7 @@
       <%= f.label :supported_team_cont, "応援したチーム" %>
       <%= f.search_field :supported_team_cont %>
       <%= f.submit "検索" %>
+      <%= link_to "リセット", root_path %>
     <% end %>
   </div>
 
