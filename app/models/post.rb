@@ -10,4 +10,8 @@ class Post < ApplicationRecord
       errors.add(:match_date, ":今日以降の日付は選択できません。")
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["stadium_name", "address", "match_date", "supported_team"]
+  end
 end
