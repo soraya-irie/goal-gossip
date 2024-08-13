@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def bookmarks
-    @bookmarked_posts = current_user.bookmarked_posts.includes(:user).order(created_at: :desc)
+    @pagy, @bookmarked_posts = pagy(current_user.bookmarked_posts.includes(:user).order(created_at: :desc))
   end
 
   private

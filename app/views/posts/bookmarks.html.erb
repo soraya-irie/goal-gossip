@@ -1,0 +1,25 @@
+<div class="background-image">
+  <div class="form-container">
+    <% @bookmarked_posts.each do |post| %>
+      <div class="post-container">
+        <div class="post-header">
+          <p class="user-name"><%= post.user.name %></p>
+          <p class="post-date"><%= post.created_at.strftime("%m/%d %H:%M") %></p>
+        </div>
+        <%= link_to post, class: 'post-details-link' do %>
+          <div class="post-details">
+            <p>スタジアム: <%= post.stadium_name %></p>
+            <p>観戦日: <%= post.match_date.strftime("%m/%d") %></p>
+            <p>応援したチーム: <%= post.supported_team %></p>
+          </div>
+        <% end %>
+        <p class="post-comment"><%= post.comment %></p>
+        <div class="post-footer">
+          <%= link_to "詳細を見る", post_path(post), class: "post-footer-link" %>
+        </div>
+        <%= render 'shared/bookmark_link', post: post if current_user&.present? && !current_user.own?(post) %>
+      </div>
+    <% end %>
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+  </div>
+</div>
