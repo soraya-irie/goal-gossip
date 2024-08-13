@@ -34,6 +34,10 @@ class PostsController < ApplicationController
     redirect_to root_path, notice: '投稿が削除されました', status: :see_other
   end
 
+  def bookmarks
+    @bookmarked_posts = current_user.bookmarked_posts.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def set_post
