@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :bookmarks, dependent: :destroy
   validates :user_id, :stadium_name, :address, :match_date, :supported_team, :comment, presence: true
   validate :validate_not_future_date
 

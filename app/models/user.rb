@@ -3,6 +3,8 @@ class User < ApplicationRecord
   USER_NAME = "ゲスト".freeze
 
   has_many :posts, dependent: :destroy
+  has_many :bookmarks
+  has_many :bookmarked_posts, through: :bookmarks, source: :post
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
