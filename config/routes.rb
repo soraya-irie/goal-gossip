@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root 'users#index'
-  resources :posts, except: [:index]
+  resources :posts, except: [:index] do
+    collection do
+      get :bookmarks
+    end
+  end
+  resources :bookmarks, only: %i[create destroy]
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
