@@ -1,0 +1,5 @@
+<% if current_user.bookmarked?(post) %>
+  <%= link_to "ブックマークを削除する", bookmark_path(current_user.bookmarks.find_by(post_id: post.id)), data: { turbo_method: :delete } %>
+<% else %>
+  <%= link_to "ブックマークする", bookmarks_path(post_id: post.id), data: { turbo_method: :post } %>
+<% end %>
