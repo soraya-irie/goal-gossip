@@ -14,4 +14,16 @@ class User < ApplicationRecord
       user.name = USER_NAME
     end
   end
+
+  def bookmark(post)
+    bookmarked_posts << post
+  end
+
+  def unbookmark(post)
+    bookmarked_posts.destroy(post)
+  end
+
+  def bookmarked?(post)
+    bookmarked_posts.include?(post)
+  end
 end
