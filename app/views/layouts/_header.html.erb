@@ -6,7 +6,12 @@
         <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "設定",  edit_user_registration_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" } %></li>
-        <li class="nav-item"><%= link_to current_user.name, user_path(current_user), class: "nav-link" %></li>
+        <li class="nav-item">
+          <%= link_to user_path(current_user), class: "nav-link" do %>
+            <%= image_tag current_user.avatar, class: "avatar" if current_user.avatar.attached? %>
+            <%= current_user.name %>
+          <% end %>
+        </li>
       </ul>
     <% else %>
       <ul class="nav-list">

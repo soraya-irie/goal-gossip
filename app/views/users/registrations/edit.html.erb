@@ -5,6 +5,11 @@
       <%= render "users/shared/error_messages", resource: resource %>
 
       <div class="field">
+        <%= f.label :avatar, "プロフィール画像" %><br />
+        <%= f.file_field :avatar, autofocus: true %>
+      </div>
+
+      <div class="field">
         <%= f.label :name, "ユーザーネーム" %><br />
         <%= f.text_field :name, autofocus: true, class: "form" %>
       </div>

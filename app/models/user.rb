@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :bookmarked_posts, through: :bookmarks, source: :post
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one_attached :avatar
 
   def self.guest
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
