@@ -76,3 +76,4 @@ end
 gem 'devise'
 gem 'pagy', '~>9.0'
 gem 'ransack'
+gem "aws-sdk-s3", require: false
