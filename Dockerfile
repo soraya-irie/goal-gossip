@@ -2,10 +2,9 @@
 FROM ruby:3.2.2
 
 # 環境変数
-ENV APP_HOME /app
-ENV TZ Asia/Tokyo
-ENV PORT 3001
-ENV HOST 0.0.0.0
+ENV APP_HOME=/app
+ENV TZ=Asia/Tokyo
+ENV PORT=3001
 
 # WORKDIR：作業ディレクトリ
 WORKDIR ${APP_HOME}
@@ -31,4 +30,4 @@ ENTRYPOINT ["entrypoint.sh"]
 EXPOSE ${PORT}
 
 # コンテナ実行時にRails サーバ起動
-CMD ["bundle", "exec", "rails", "server", "-b", ${HOST}]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
