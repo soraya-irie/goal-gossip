@@ -49,7 +49,9 @@
     <% end %>
 
     <div class="links-container">
-      <div><%= link_to "削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
+    <%= link_to registration_path(resource_name), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
+        <%= render 'shared/destroy_icon' %>
+      <% end %>
     </div>
     <%= link_to "戻る", :back %>
   </div>

@@ -1,6 +1,9 @@
 <div class="background-image">
   <%= render 'shared/breadcrumbs', title: '投稿詳細' %>
   <div class="form-container">
+    <%= link_to edit_post_path do %>
+      <%= render 'shared/edit_icon' if current_user&.present? && current_user.own?(@post) %>
+    <% end %>
     <h2 class="form-title">~ 投稿詳細 ~</h2>
     <%= form_with model: @post do |form| %>
       <div class="field">
@@ -9,11 +12,10 @@
       </div>
       <%= render 'form_fields', form: form, readonly: true %>
       <% if current_user&.id == @post.user_id %>
-        <div class="button-container">
-          <%= link_to "編集する", edit_post_path(@post), class: "form-button" %>
-        </div>
         <div class="links-container">
-          <%= link_to "削除する", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "投稿を削除してよろしいですか？" } %>
+          <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "投稿を削除してよろしいですか？" } do %>
+            <%= render 'shared/destroy_icon' %>
+          <% end %>
         </div>
       <% end %>
     <% end %>
