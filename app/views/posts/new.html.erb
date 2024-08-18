@@ -1,11 +1,6 @@
 <div class="background-image">
-  <div class="search-form-container">
-    <%= label_tag :stadium, "あなたが観戦したスタジアムを入力してください", class: "search-form-label" %>
-    <%= text_field_tag :stadium, nil, id: 'address', placeholder: "例: 国立競技場", class: "search-form-input" %>
-    <%= button_tag "入力", type: "button", class: "search-form-button" %>
-  </div>
-
   <div class="form-container">
+    <%= render 'posts/search_form' %>
     <h2 class="form-title">~ 観戦記録を投稿する ~</h2>
     <%= render 'shared/error_messages', object: @post %>
     <%= form_with model: @post do |form| %>
