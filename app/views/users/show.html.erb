@@ -3,6 +3,9 @@
   <div class="form-container">
     <%= render 'search_form', reset_path: user_path(@user) %>
     <h2 class="form-title">~ マイページ ~</h2>
+    <%= link_to bookmarks_posts_path do %>
+      <%= render 'shared/bookmark_icon' %>
+    <% end %>
     <% @posts.each do |post| %>
       <%= render 'post', post: post %>
     <% end %>

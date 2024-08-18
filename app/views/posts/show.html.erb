@@ -3,6 +3,10 @@
   <div class="form-container">
     <h2 class="form-title">~ 投稿詳細 ~</h2>
     <%= form_with model: @post do |form| %>
+      <div class="field">
+        <%= form.label :user_name, "ユーザー名" %>
+        <%= form.text_field :user_name, class: "form", readonly: true, value: @post.user.name %>
+      </div>
       <%= render 'form_fields', form: form, readonly: true %>
       <% if current_user&.id == @post.user_id %>
         <div class="button-container">
