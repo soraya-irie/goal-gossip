@@ -2,36 +2,7 @@
   <div class="form-container">
     <h2 class="form-title">~ 観戦記録の詳細 ~</h2>
     <%= form_with model: @post do |form| %>
-      <div class="field">
-        <%= form.label :stadium_name, "スタジアム名" %>
-        <%= form.text_field :stadium_name, class: "form", readonly: true %>
-      </div>
-
-      <div class="field">
-        <%= form.label :address, "住所" %>
-        <%= form.text_field :address, class: "form", readonly: true %>
-      </div>
-
-      <div class="field">
-        <%= form.label :match_date, "観戦日" %>
-        <%= form.date_field :match_date, class: "form", readonly: true %>
-      </div>
-
-      <div class="field">
-        <%= form.label :supported_team, "応援したチーム" %>
-        <%= form.text_field :supported_team, class: "form", readonly: true %>
-      </div>
-
-      <div class="field">
-        <%= form.label :comment, "観戦した感想" %>
-        <%= form.text_area :comment, class: "form", readonly: true %>
-      </div>
-
-      <div class="field">
-        <%= label_tag :map, "観戦したスタジアムの場所" %>
-        <div id="map"></div>
-      </div>
-
+      <%= render 'form_fields', form: form, readonly: true %>
       <% if current_user && @post.user_id == current_user.id %>
         <div class="button-container">
           <%= link_to "編集する", edit_post_path(@post), class: "form-button" %>

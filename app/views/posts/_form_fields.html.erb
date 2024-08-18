@@ -1,0 +1,24 @@
+<div class="field">
+  <%= form.label :stadium_name, "スタジアム名" %>
+  <%= form.text_field :stadium_name, class: "form", placeholder: local_assigns[:readonly] ? nil : "自動で入力されます", readonly: local_assigns[:readonly] %>
+</div>
+<div class="field">
+  <%= form.label :address, "住所" %>
+  <%= form.text_field :address, class: "form", placeholder: local_assigns[:readonly] ? nil : "自動で入力されます", readonly: local_assigns[:readonly] %>
+</div>
+<div class="field">
+  <%= form.label :match_date, "観戦日" %>
+  <%= form.date_field :match_date, class: "form", readonly: local_assigns[:readonly] %>
+</div>
+<div class="field">
+  <%= form.label :supported_team, "応援したチーム" %>
+  <%= form.text_field :supported_team, class: "form", readonly: local_assigns[:readonly] %>
+</div>
+<div class="field">
+  <%= form.label :comment, "観戦した感想" %>
+  <%= form.text_area :comment, class: "form", readonly: local_assigns[:readonly] %>
+</div>
+<div class="field">
+  <%= label_tag :map, "観戦したスタジアムの場所" %>
+  <div id="map"></div>
+</div>
