@@ -1,7 +1,8 @@
 <div class="background-image">
+  <%= render 'shared/breadcrumbs', title: 'マイページ' %>
   <div class="form-container">
     <%= render 'search_form', reset_path: user_path(@user) %>
-    <h2 class="form-title">~ 投稿 ~</h2>
+    <h2 class="form-title">~ マイページ ~</h2>
     <% @posts.each do |post| %>
       <%= render 'post', post: post %>
     <% end %>
