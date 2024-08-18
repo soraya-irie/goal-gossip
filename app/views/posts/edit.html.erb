@@ -7,17 +7,7 @@
 
   <div class="form-container">
     <h2 class="form-title">~ 観戦記録を編集する ~</h2>
-    <% if @post.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= @post.errors.count %>件のエラーが発生しました</h2>
-
-        <ul>
-          <% @post.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <%= render 'shared/error_messages', object: @post %>
     <%= form_with model: @post do |form| %>
       <%= form.hidden_field :user_id, value: current_user.id %>
       <div class="field">
