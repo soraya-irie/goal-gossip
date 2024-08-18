@@ -3,7 +3,7 @@
     <h2 class="form-title">~ 観戦記録の詳細 ~</h2>
     <%= form_with model: @post do |form| %>
       <%= render 'form_fields', form: form, readonly: true %>
-      <% if current_user && @post.user_id == current_user.id %>
+      <% if current_user&.id == @post.user_id %>
         <div class="button-container">
           <%= link_to "編集する", edit_post_path(@post), class: "form-button" %>
         </div>

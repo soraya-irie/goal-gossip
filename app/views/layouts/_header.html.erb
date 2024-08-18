@@ -13,9 +13,9 @@
             <% else %>
               <%= render "shared/default_icon" %>
             <% end %>
+            <%= current_user.name %>
           <% end %>
         </li>
-        <li class="nav-item"><%= link_to current_user.name, user_path(current_user), class: "nav-link" %></li>
       </ul>
     <% else %>
       <ul class="nav-list">
