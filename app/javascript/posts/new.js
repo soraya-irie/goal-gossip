@@ -40,7 +40,3 @@ function initialize() {
   initMap();
   addEventListeners();
 }
-
-window.initMap = initMap;
-window.codeAddress = codeAddress;
-window.addEventListeners = addEventListeners;

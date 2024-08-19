@@ -1,6 +1,6 @@
 document.addEventListener('turbo:load', () => {
   function initMap() {
-    const address = document.getElementById('post_address').value;
+    const address = document.getElementById('post_stadium_name').value;
     const geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({ address }, (results, status) => {
@@ -8,12 +8,12 @@ document.addEventListener('turbo:load', () => {
         const location = results[0].geometry.location;
         const mapOptions = {
           center: location,
-          zoom: 14,
+          zoom: 18,
+          mapTypeId: 'satellite'
         };
 
         const mapElement = document.getElementById('map');
-        const map = new google.maps.Map(mapElement, mapOptions);
-        new google.maps.Marker({ position: location, map });
+        new google.maps.Map(mapElement, mapOptions);
       } else {
         console.error(`ジオコーディングが次の理由で失敗しました: ${status}`);
       }
