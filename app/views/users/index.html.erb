@@ -5,7 +5,7 @@
   </div>
   <% if user_signed_in? %>
     <div class="new-post-link-container">
-      <%= link_to "感想を投稿する", new_post_path, class: "new-post-link" %>
+      <%= link_to "感想を投稿する", new_post_path, class: "new-post-link", data: { turbo: false } %>
     </div>
   <% else %>
     <div class="auth-options-container">

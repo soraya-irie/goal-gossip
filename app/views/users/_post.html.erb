@@ -3,7 +3,7 @@
     <p class="user-name"><%= post.user.name %></p>
     <p class="post-date"><%= post.created_at.strftime("%m/%d %H:%M") %></p>
   </div>
-  <%= link_to post, class: 'post-details-link' do %>
+  <%= link_to post, class: 'post-details-link', data: { turbo: false } do %>
     <div class="post-details">
       <p>スタジアム: <%= post.stadium_name %></p>
       <p>観戦日: <%= post.match_date.strftime("%m/%d") %></p>
@@ -12,7 +12,7 @@
   <% end %>
   <p class="post-comment"><%= post.comment %></p>
   <div class="post-footer">
-    <%= link_to "詳細を見る", post_path(post), class: "post-footer-link" %>
+    <%= link_to "詳細を見る", post, class: "post-footer-link", data: { turbo: false } %>
   </div>
   <% if current_user&.present? %>
     <%= render 'shared/bookmark_link', post: post unless current_user.own?(post) %>
