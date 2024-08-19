@@ -7,15 +7,15 @@ function initialize() {
   const nameDis = document.getElementById('post_stadium_name');
   const addressDis = document.getElementById('post_address');
   const addressInput = document.getElementById('address');
-  let map, marker, geocoder;
+  let map, geocoder;
 
   function initMap() {
     const nationalStadium = { lat: 35.677824, lng: 139.714541 };
     map = new google.maps.Map(mapElement, {
       center: nationalStadium,
-      zoom: 14,
+      zoom: 18,
+      mapTypeId: 'satellite',
     });
-    marker = new google.maps.Marker({ position: nationalStadium, map });
     geocoder = new google.maps.Geocoder();
   }
 
@@ -25,7 +25,6 @@ function initialize() {
       if (status === 'OK' && results[0]) {
         const location = results[0].geometry.location;
         map.setCenter(location);
-        marker.setPosition(location);
         nameDis.value = address;
         addressDis.value = results[0].formatted_address;
       } else {
