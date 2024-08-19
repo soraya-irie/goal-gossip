@@ -16,7 +16,7 @@
   </div>
   <% if current_user&.present? %>
     <%= render 'shared/bookmark_link', post: post unless current_user.own?(post) %>
-    <%= link_to edit_post_path(post) do %>
+    <%= link_to edit_post_path(post), data: { turbo: false } do %>
       <%= render 'shared/edit_icon' if current_user.own?(post) %>
     <% end %>
   <% end %>
