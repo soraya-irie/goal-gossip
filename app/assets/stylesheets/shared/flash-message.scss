@@ -1,17 +1,18 @@
 .flash-message {
   border-radius: 5px;
-  padding: 16px 24px;
-  margin: 16px 0;
+  padding: 15px;
 
   &.notice {
     background-color: #bcdfff;
     color: #0067C0;
     border: solid 1px #0067C0;
+    margin: 0;
   }
 
   &.alert {
     background-color: #ffd4d1;
     color: #930403;
     border: solid 1px #930403;
+    margin: 0;
   }
 }
