@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :bookmarks, dependent: :destroy
   validates :user_id, :stadium_name, :address, :match_date, :supported_team, :comment, presence: true
-  validates :stadium_name, :address, :supported_team, length: { maximum: 50 }
+  validates :stadium_name, :address, :supported_team, length: { maximum: 100 }
   validates :comment, length: { maximum: 200 }
   validate :validate_not_future_date
 
