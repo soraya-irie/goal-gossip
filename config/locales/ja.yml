@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: ポスト
+      bookmark: ブックマーク
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+      post:
+        stadium_name: スタジアム名
+        address: 住所
+        match_date: 観戦日
+        supported_team: 応援したチーム
+        comment: 観戦した感想
