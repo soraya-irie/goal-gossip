@@ -1,7 +1,12 @@
 <footer>
   <ul class="footer-nav">
     <li><%= link_to 'Home | ', root_path %></li>
-    <li><%= link_to 'Goal gossipとは？', "#" %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to 'マイページ', user_path(current_user) %></li>
+    <% else %>
+      <li><%= link_to 'ログイン |', new_user_session_path %></li>
+      <li><%= link_to '新規登録', new_user_registration_path %></li>
+    <% end %>
   </ul>
   <p>© All rights reserved by Goal gossip</p>
 </footer>
