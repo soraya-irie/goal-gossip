@@ -2,6 +2,10 @@
   <%= render 'shared/breadcrumbs', title: 'ブックマーク一覧' %>
   <div class="form-container">
     <h2 class="form-title">~ ブックマーク一覧 ~</h2>
+    <%= link_to "マイページに戻る", user_path(current_user), class: "post-footer-link" %>
+    <div class="mt-5">
+      <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+    </div>
     <% @bookmarked_posts.each do |post| %>
       <%= render 'users/post', post: post %>
     <% end %>

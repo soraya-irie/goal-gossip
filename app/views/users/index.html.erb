@@ -24,6 +24,7 @@
   <div class="form-container">
     <%= render 'search_form', reset_path: root_path %>
     <h2 class="form-title">~ 投稿一覧 ~</h2>
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
     <% @posts.each do |post| %>
       <%= render 'post', post: post %>
     <% end %>

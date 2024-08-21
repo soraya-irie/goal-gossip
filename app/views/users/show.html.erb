@@ -1,11 +1,11 @@
 <div class="background-image">
   <%= render 'shared/breadcrumbs', title: 'マイページ' %>
   <div class="form-container">
-    <%= render 'search_form', reset_path: user_path(@user) %>
     <h2 class="form-title">~ マイページ ~</h2>
-    <%= link_to bookmarks_posts_path do %>
-      <%= render 'shared/bookmark_icon' %>
-    <% end %>
+    <%= link_to "ブックマーク一覧へ", bookmarks_posts_path, class: "post-footer-link" %>
+    <div class="mt-5">
+      <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+    </div>
     <% @posts.each do |post| %>
       <%= render 'post', post: post %>
     <% end %>
