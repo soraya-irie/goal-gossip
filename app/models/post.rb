@@ -14,7 +14,8 @@ class Post < ApplicationRecord
     end
   end
 
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(auth_object: nil)
     ["stadium_name", "address", "match_date", "supported_team", "comment", "created_at"]
   end
+  private_class_method :ransackable_attributes
 end
