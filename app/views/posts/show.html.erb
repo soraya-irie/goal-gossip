@@ -19,7 +19,7 @@
         <%= form.text_field :user_name, class: "form", readonly: true, value: @post.user.name %>
       </div>
       <%= render 'form_fields', form: form, readonly: true %>
-      <%= link_to "戻る", root_path %>
+      <%= link_to "戻る", root_path, class: "form-button" %>
     <% end %>
   </div>
 </div>

@@ -75,6 +75,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   border: 1px solid #ddd;
+  margin: 20px auto;
 }
 
 .button-container {
@@ -88,6 +89,7 @@
   padding: 10px 20px;
   border: 1.5px solid #4CAF50;
   border-radius: 30px;
+  text-decoration: none;
   &:hover {
     background-color: #4CAF50;
     color: #fff;
