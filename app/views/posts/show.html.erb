@@ -1,9 +1,17 @@
 <div class="background-image">
+
   <%= render 'shared/breadcrumbs', title: '投稿詳細' %>
   <div class="form-container">
-    <%= link_to edit_post_path, data: { turbo: false } do %>
-      <%= render 'shared/edit_icon' if current_user&.present? && current_user.own?(@post) %>
-    <% end %>
+    <div class="links-container">
+    <% if current_user&.id == @post.user_id %>
+      <%= link_to edit_post_path, data: { turbo: false } do %>
+        <%= render 'shared/edit_icon' %>
+      <% end %>
+      <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "投稿を削除してよろしいですか？" } do %>
+        <%= render 'shared/destroy_icon' %>
+      <% end %>
+      <% end %>
+    </div>
     <h2 class="form-title">~ 投稿詳細 ~</h2>
     <%= form_with model: @post do |form| %>
       <div class="field">
@@ -11,15 +19,8 @@
         <%= form.text_field :user_name, class: "form", readonly: true, value: @post.user.name %>
       </div>
       <%= render 'form_fields', form: form, readonly: true %>
-      <% if current_user&.id == @post.user_id %>
-        <div class="links-container">
-          <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "投稿を削除してよろしいですか？" } do %>
-            <%= render 'shared/destroy_icon' %>
-          <% end %>
-        </div>
-      <% end %>
+      <%= link_to "戻る", root_path %>
     <% end %>
-    <%= link_to "戻る", root_path %>
   </div>
 </div>
 

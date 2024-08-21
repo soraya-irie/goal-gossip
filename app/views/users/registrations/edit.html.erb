@@ -1,6 +1,9 @@
 <div class="background-image">
   <%= render 'shared/breadcrumbs', title: 'プロフィール編集' %>
   <div class="form-container">
+    <%= link_to registration_path(resource_name), data: { turbo_method: :delete, turbo_confirm: "アカウントを削除してよろしいですか？" } do %>
+      <%= render 'shared/destroy_icon' %>
+    <% end %>
     <h2 class="form-title">~ プロフィール編集 ~</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
@@ -48,11 +51,6 @@
       </div>
     <% end %>
 
-    <div class="links-container">
-      <%= link_to registration_path(resource_name), data: { turbo_method: :delete, turbo_confirm: "アカウントを削除してよろしいですか？" } do %>
-        <%= render 'shared/destroy_icon' %>
-      <% end %>
-    </div>
     <%= link_to "戻る", :back %>
   </div>
 </div>
