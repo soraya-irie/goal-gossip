@@ -1,6 +1,13 @@
 <div class="post-container">
   <div class="post-header">
-    <p class="user-name"><%= post.user.name %></p>
+    <p class="user-name">
+      <% if post.user.avatar.attached? %>
+        <%= image_tag post.user.avatar, class: "avatar" %>
+      <% else %>
+        <%= render "shared/default_icon" %>
+      <% end %>
+      <%= post.user.name %>
+    </p>
     <p class="post-date"><%= post.created_at.strftime("%m/%d %H:%M") %></p>
   </div>
   <%= link_to post, class: 'post-details-link', data: { turbo: false } do %>
