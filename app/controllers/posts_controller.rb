@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i(show edit update destroy)
   before_action :authenticate_user!, only: %i(new create edit update destroy)
+  before_action :ensure_correct_user, only: %i(edit update destroy)
 
   def show
   end
@@ -46,5 +47,11 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:user_id, :stadium_name, :address, :match_date, :supported_team, :comment)
+  end
+
+  def ensure_correct_user
+    if @post.user_id != current_user.id
+      redirect_to @post, notice: '自分の投稿以外は編集,削除できません'
+    end
   end
 end

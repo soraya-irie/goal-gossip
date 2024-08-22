@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_q, only: %i(index show search)
+  before_action :set_q, only: %i(index search)
 
   def index
     @pagy, @posts = pagy(Post.includes(:user).order(created_at: :desc))
