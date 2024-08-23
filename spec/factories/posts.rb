@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :post do
-    user { nil }
-    stadium_name { "MyString" }
-    address { "MyText" }
-    match_date { "2024-08-02" }
-    supported_team { "MyString" }
-    comment { "MyText" }
+    stadium_name { "味の素スタジアム" }
+    address { "日本、〒182-0032 東京都調布市西町３７６−３" }
+    match_date { 1.day.ago }
+    supported_team { "ブライトン" }
+    comment { "テスト用のコメントです。" }
+    association :user
   end
 end

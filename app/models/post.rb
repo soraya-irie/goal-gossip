@@ -14,7 +14,7 @@ class Post < ApplicationRecord
 
   def validate_not_future_date
     if match_date.present? && match_date > Date.today
-      errors.add(:match_date, ":今日以降の日付は選択できません。")
+      errors.add(:match_date, "は今日以前の日付で入力してください")
     end
   end
 end
