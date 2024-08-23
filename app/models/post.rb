@@ -6,15 +6,15 @@ class Post < ApplicationRecord
   validates :comment, length: { maximum: 200 }
   validate :validate_not_future_date
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w(stadium_name address match_date supported_team comment created_at)
+  end
+
   private
 
   def validate_not_future_date
     if match_date.present? && match_date > Date.today
       errors.add(:match_date, ":今日以降の日付は選択できません。")
     end
-  end
-
-  def self.ransackable_attributes(auth_object =  nil)
-    %w(stadium_name address match_date supported_team comment created_at)
   end
 end
