@@ -3,13 +3,13 @@
   <%= render 'shared/breadcrumbs', title: '投稿詳細' %>
   <div class="form-container">
     <div class="links-container">
-    <% if current_user&.id == @post.user_id %>
-      <%= link_to edit_post_path, data: { turbo: false } do %>
-        <%= render 'shared/edit_icon' %>
-      <% end %>
-      <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "投稿を削除してよろしいですか？" } do %>
-        <%= render 'shared/destroy_icon' %>
-      <% end %>
+      <% if current_user&.id == @post.user_id %>
+        <%= link_to edit_post_path, data: { turbo: false } do %>
+          <%= render 'shared/edit_icon' %>
+        <% end %>
+        <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "投稿を削除してよろしいですか？" } do %>
+          <%= render 'shared/destroy_icon' %>
+        <% end %>
       <% end %>
     </div>
     <h2 class="form-title">~ 投稿詳細 ~</h2>
