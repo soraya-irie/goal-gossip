@@ -1,9 +1,9 @@
 <% if current_user.bookmarked?(post) %>
-  <%= link_to bookmark_path(current_user.bookmarks.find_by(post_id: post.id)), data: { turbo_method: :delete } do %>
+  <%= link_to bookmark_path(current_user.bookmarks.find_by(post_id: post.id)), data: { turbo_method: :delete }, class: "unbookmark-icon" do %>
     <%= render 'shared/bookmarked_icon' %>
   <% end %>
 <% else %>
-  <%= link_to bookmarks_path(post_id: post.id), data: { turbo_method: :post } do %>
+  <%= link_to bookmarks_path(post_id: post.id), data: { turbo_method: :post }, class: "bookmark-icon" do %>
     <%= render 'shared/bookmark_icon' %>
   <% end %>
 <% end %>
