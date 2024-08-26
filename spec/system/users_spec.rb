@@ -77,4 +77,22 @@ RSpec.describe "Users", type: :system do
     expect(page).to have_content "アカウントを削除しました"
     expect(page).to have_current_path root_path
   end
+
+  scenario "ファイルをアップロードする" do
+    user = FactoryBot.create(:user)
+    visit root_path
+    click_link "ログインフォームへ"
+    fill_in "メールアドレス", with: user.email
+    fill_in "パスワード", with: user.password
+    click_button "ログインする"
+
+    find('.nav-link', text: "設定").click
+    attach_file "プロフィール画像", "#{Rails.root}/spec/files/attachment.jpg"
+    fill_in "現在のパスワード", with: user.password
+    click_button "プロフィールを更新する"
+    expect(page).to have_content "アカウント情報を変更しました"
+    expect(page).to have_current_path root_path
+    expect(user.reload.avatar.attached?).to be_truthy
+    expect(page).to have_selector "img[src$='attachment.jpg']"
+  end
 end
