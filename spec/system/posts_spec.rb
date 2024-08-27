@@ -1,16 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Posts", type: :system do
-  scenario "ユーザーが新しい投稿を作成する" do
-    user = FactoryBot.create(:user)
-
+  before do
+    @user = FactoryBot.create(:user)
     visit root_path
     click_link "ログインフォームへ"
-    fill_in "メールアドレス", with: user.email
-    fill_in "パスワード", with: user.password
+    fill_in "メールアドレス", with: @user.email
+    fill_in "パスワード", with: @user.password
     click_button "ログインする"
     expect(page).to have_content "ログインしました"
+  end
 
+  scenario "ユーザーが新しい投稿を作成する" do
     click_link "感想を投稿する"
     fill_in "スタジアム名", with: "味の素スタジアム"
     fill_in "住所", with: "日本、〒182-0032 東京都調布市西町３７６−３"
@@ -21,22 +22,14 @@ RSpec.describe "Posts", type: :system do
     expect {
       click_button "投稿する"
     }.to change { Post.count }.by(1)
-
     expect(page).to have_current_path post_path(Post.last)
     expect(page).to have_content "投稿が保存されました"
   end
 
   scenario "ユーザーが投稿を削除する" do
-    user = FactoryBot.create(:user)
-    post = FactoryBot.create(:post, user: user)
+    @post = FactoryBot.create(:post, user: @user)
+    visit post_path(@post)
 
-    visit root_path
-    click_link "ログインフォームへ"
-    fill_in "メールアドレス", with: user.email
-    fill_in "パスワード", with: user.password
-    click_button "ログインする"
-
-    visit post_path(post)
     expect {
       find('a[data-turbo-confirm="投稿を削除してよろしいですか？"]').click
     }.to change { Post.count }.by(-1)
@@ -45,17 +38,10 @@ RSpec.describe "Posts", type: :system do
   end
 
   scenario "ユーザーが投稿を編集する" do
-    user = FactoryBot.create(:user)
-    post = FactoryBot.create(:post, user: user)
+    @post = FactoryBot.create(:post, user: @user)
 
-    visit root_path
-    click_link "ログインフォームへ"
-    fill_in "メールアドレス", with: user.email
-    fill_in "パスワード", with: user.password
-    click_button "ログインする"
-
-    visit edit_post_path(post)
-    expect(page).to have_current_path edit_post_path(post)
+    visit edit_post_path(@post)
+    expect(page).to have_current_path edit_post_path(@post)
 
     fill_in "スタジアム名", with: "豊田スタジアム"
     fill_in "住所", with: "日本、〒471-0016 愛知県豊田市千石町７丁目２"
@@ -65,26 +51,18 @@ RSpec.describe "Posts", type: :system do
 
     click_button "更新する"
     expect(page).to have_content "投稿が更新されました"
-    expect(page).to have_current_path post_path(post)
+    expect(page).to have_current_path post_path(@post)
   end
 
   describe "マップ機能" do
-    before do
-      @user = FactoryBot.create(:user)
-      @post = FactoryBot.create(:post, user: @user)
-      visit root_path
-      click_link "ログインフォームへ"
-      fill_in "メールアドレス", with: @user.email
-      fill_in "パスワード", with: @user.password
-      click_button "ログインする"
-    end
-
     scenario "投稿詳細画面にマップが表示される" do
+      @post = FactoryBot.create(:post, user: @user)
       visit post_path(@post)
       expect(page).to have_css '#map'
     end
 
     scenario "投稿編集画面にマップが表示される" do
+      @post = FactoryBot.create(:post, user: @user)
       visit edit_post_path(@post)
       expect(page).to have_css '#map'
     end
