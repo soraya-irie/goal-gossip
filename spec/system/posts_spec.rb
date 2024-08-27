@@ -67,4 +67,31 @@ RSpec.describe "Posts", type: :system do
     expect(page).to have_content "投稿が更新されました"
     expect(page).to have_current_path post_path(post)
   end
+
+  describe "マップ機能" do
+    before do
+      @user = FactoryBot.create(:user)
+      @post = FactoryBot.create(:post, user: @user)
+      visit root_path
+      click_link "ログインフォームへ"
+      fill_in "メールアドレス", with: @user.email
+      fill_in "パスワード", with: @user.password
+      click_button "ログインする"
+    end
+
+    scenario "投稿詳細画面にマップが表示される" do
+      visit post_path(@post)
+      expect(page).to have_css '#map'
+    end
+
+    scenario "投稿編集画面にマップが表示される" do
+      visit edit_post_path(@post)
+      expect(page).to have_css '#map'
+    end
+
+    scenario "新規登録画面にマップが表示される" do
+      click_link "感想を投稿する"
+      expect(page).to have_css '#map'
+    end
+  end
 end
