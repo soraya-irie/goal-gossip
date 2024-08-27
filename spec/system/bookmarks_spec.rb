@@ -11,10 +11,10 @@ RSpec.describe "Bookmarks", type: :system do
     fill_in "パスワード", with: user.password
     click_button "ログインする"
 
-    expect {
+    expect do
       find('.bookmark-icon').click
       expect(page).to have_content "ブックマークしました"
-    }.to change { Bookmark.count }.by(1)
+    end.to change { Bookmark.count }.by(1)
 
     visit bookmarks_posts_path
     expect(page).to have_content post.stadium_name

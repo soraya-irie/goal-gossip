@@ -19,9 +19,9 @@ RSpec.describe "Posts", type: :system do
     fill_in "応援したチーム", with: "ブライトン"
     fill_in "観戦した感想", with: "ブライトンの試合は面白かった"
 
-    expect {
+    expect do
       click_button "投稿する"
-    }.to change { Post.count }.by(1)
+    end.to change { Post.count }.by(1)
     expect(page).to have_current_path post_path(Post.last)
     expect(page).to have_content "投稿が保存されました"
   end
@@ -30,9 +30,9 @@ RSpec.describe "Posts", type: :system do
     @post = FactoryBot.create(:post, user: @user)
     visit post_path(@post)
 
-    expect {
+    expect do
       find('a[data-turbo-confirm="投稿を削除してよろしいですか？"]').click
-    }.to change { Post.count }.by(-1)
+    end.to change { Post.count }.by(-1)
     expect(page).to have_content "投稿が削除されました"
     expect(page).to have_current_path root_path
   end
