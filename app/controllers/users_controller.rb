@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_q, only: %i(index search)
+  before_action :authenticate_user!, only: :show
 
   def index
     @pagy, @posts = pagy(Post.includes(:user).order(created_at: :desc))
