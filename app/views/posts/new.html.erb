@@ -4,7 +4,7 @@
     <%= render 'posts/search_form' %>
     <h2 class="form-title">~ 新規投稿 ~</h2>
     <%= render 'shared/error_messages', object: @post %>
-    <%= form_with model: @post do |form| %>
+    <%= form_with model: @post, data: { turbo: false } do |form| %>
       <%= form.hidden_field :user_id, value: current_user.id %>
       <%= render 'form_fields', form: form %>
       <div class="button-container">
