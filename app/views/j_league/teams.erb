@@ -1,0 +1,25 @@
+<div class="background-image">
+  <%= render 'shared/breadcrumbs', title: 'J1リーグ クラブ一覧' %>
+  <div class="form-container">
+    <h2 class="form-title">~ J1リーグ クラブ一覧 ~</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>クラブ名</th>
+          <th>順位</th>
+          <th>設立</th>
+          <th>公式サイト</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @teams.each do |team| %>
+          <tr>
+            <td><%= image_tag(team['image'], size: "50x50") %> <%= team['name'] %></td>
+            <td><%= team['table_position'] %></td>
+            <td><%= team['founded'] %></td>
+            <td><%= link_to team['official_sites'].first, team['official_sites'].first %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
