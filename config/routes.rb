@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   end
   get 'j_league/standings'
   get 'j_league/teams'
+  get 'j_league/search'
 end
