@@ -14,12 +14,17 @@
       <tbody>
         <% @teams.each do |team| %>
           <tr>
-            <td><%= image_tag(team['image'], size: "50x50") %> <%= team['name'] %></td>
+            <td>
+              <%= link_to team_path(team['id']), data: { turbo: false } do %>
+                <%= image_tag(team['image'], size: "50x50") %> <%= team['name'] %>
+              <% end %>
+            </td>
             <td><%= team['table_position'] %></td>
             <td><%= team['founded'] %></td>
-            <td><%= link_to team['official_sites'].first, team['official_sites'].first %></td>
+            <td><%= link_to team['official_sites'].first, team['official_sites'].first, target: "_blank" %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+  </div>
 </div>

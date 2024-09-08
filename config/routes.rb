@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   get 'j_league/standings'
   get 'j_league/teams'
   get 'j_league/search'
+  get 'j_league/:id', to: 'j_league#show', as: :team
 end

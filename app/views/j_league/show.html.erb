@@ -1,0 +1,34 @@
+<div class="background-image">
+  <%= render 'shared/breadcrumbs', title: @team['name'] %>
+  <div class="form-container">
+    <h2 class="form-title">
+      <%= image_tag(@team['image'], size: "50x50") %>
+      <%= @team['full_name'] %>
+    </h2>
+    <div class="field">
+      <%= label_tag :stadium_name, "ホームスタジアム" %>
+      <%= text_field_tag :stadium_name, @team['stadium_name'], class: "form", id: "post_stadium_name", readonly: true %>
+    </div>
+    <div class="field">
+      <%= label_tag :stadium_address, "住所" %>
+      <%= text_field_tag :stadium_address, @team['stadium_address'], class: "form", readonly: true %>
+    </div>
+    <div class="field">
+      <%= label_tag :founded, "設立" %>
+      <%= text_field_tag :founded, @team['founded'], class: "form", readonly: true %>
+    </div>
+    <div class="field">
+      <%= label_tag :map, "ホームスタジアム" %>
+      <div id="map"></div>
+    </div>
+    <div class="field">
+      <%= label_tag :official_site, "公式サイト" %>
+      <%= link_to @team["official_sites"].first, @team["official_sites"].first, target: "_blank" %>
+    </div>
+  </div>
+</div>
+
+<% content_for :js do %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap" async defer></script>
+  <%= javascript_import_module_tag "posts/show" %>
+<% end %>
