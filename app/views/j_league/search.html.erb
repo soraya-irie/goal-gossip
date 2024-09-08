@@ -1,0 +1,20 @@
+<div class="background-image">
+  <%= render 'shared/breadcrumbs', title: 'スタジアム検索' %>
+  <div class="form-container">
+    <h2 class="form-title">~ スタジアム検索 ~</h2>
+    <h4>エリアから探す</h4>
+    <div id="region-buttons"></div>
+    <hr>
+    <div id="prefecture-buttons"></div>
+    <div id="map"></div>
+    <div class="stadium-list">
+      <p class="stadium-list-count"></p>
+      <ul class="stadium-list-items list-group"></ul>
+    </div>
+  </div>
+</div>
+
+<% content_for :js do %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&v=beta&libraries=marker&callback=initMap" async defer></script>
+  <%= javascript_import_module_tag "j_league/search" %>
+<% end %>

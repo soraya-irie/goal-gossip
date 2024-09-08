@@ -154,3 +154,33 @@
     }
   }
 }
+
+#region-buttons, #prefecture-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 1rem;
+  margin: 20px auto;
+}
+
+.region-button, .prefecture-button {
+  background-color: #fff;
+  color: #4CAF50;
+  padding: 10px 20px;
+  border: 1.5px solid #4CAF50;
+  border-radius: 30px;
+  width: 150px;
+  height: 50px;
+  &:hover {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+}
+
+.prefecture-button {
+  background-color: #4CAF50;
+  color: #fff;
+  &:hover {
+    background-color: #fff;
+    color: #4CAF50;
+  }
+}
