@@ -36,6 +36,42 @@
   font-size: 14px;
 }
 
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #bc1616;
+}
+
+.menu li:hover .submenu {
+  display: block;
+  min-width: 150px;
+  max-width: max-content;
+}
+
+.submenu li {
+  display: block;
+  margin: 15px auto;
+}
+
+.menu a, .submenu a {
+  display: block;
+  text-decoration: none;
+}
+
 .avatar {
   width: 30px;
   height: 30px;

@@ -1,15 +1,17 @@
-<header class="site-header" data-turbo="false">
+<header class="site-header">
   <h1 class="site-title"><%= link_to "Goal gossip", root_path, class: "site-title-link" %></h1>
-  <div class="dropdown ms-4">
-    <a class="text-white text-decoration-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      リーグ情報
-    </a>
-    <ul class="dropdown-menu">
-      <li class="nav-item"><%= link_to "順位表", j_league_standings_path, class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "クラブ一覧", j_league_teams_path, class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "スタジアム検索", j_league_search_path, class: "nav-link", data: { turbo: false } %></li>
+  <nav class="ms-3">
+    <ul class="menu">
+      <li>
+        <%= link_to "Jリーグ情報", "#", class: "text-white" %>
+        <ul class="submenu">
+          <li class="nav-item"><%= link_to "順位表", j_league_standings_path, class: "text-white" %></li>
+          <li class="nav-item"><%= link_to "クラブ一覧", j_league_teams_path, class: "text-white" %></li>
+          <li class="nav-item"><%= link_to "スタジアム検索", j_league_search_path, class: "text-white", data: { turbo: false } %></li>
+        </ul>
+      </li>
     </ul>
-  </div>
+  </nav>
   <nav class="main-nav">
     <% if user_signed_in? %>
       <ul class="nav-list">
