@@ -2,7 +2,8 @@
   <%= render 'shared/breadcrumbs', title: '検索結果' %>
   <div class="form-container">
     <%= render 'search_form', reset_path: search_users_path %>
-    <h2 class="form-title">~ 検索結果 ~</h2>
+    <h2 class="form-title mt-5">~ 検索結果 ~</h2>
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
     <% @results.each do |post| %>
       <%= render 'post', post: post %>
     <% end %>

@@ -18,13 +18,15 @@
     </div>
   <% end %>
   <p class="post-comment"><%= post.comment %></p>
-  <div class="post-footer">
-    <%= link_to "詳細を見る", post, class: "post-footer-link", data: { turbo: false } %>
-  </div>
-  <% if current_user&.present? %>
-    <%= render 'shared/bookmark_link', post: post unless current_user.own?(post) %>
-    <%= link_to edit_post_path(post), data: { turbo: false } do %>
-      <%= render 'shared/edit_icon' if current_user.own?(post) %>
+  <div class="d-flex">
+    <% if current_user&.present? %>
+      <%= render 'shared/bookmark_link', post: post unless current_user.own?(post) %>
+      <%= link_to edit_post_path(post), data: { turbo: false } do %>
+        <%= render 'shared/edit_icon' if current_user.own?(post) %>
+      <% end %>
     <% end %>
-  <% end %>
+    <div class="post-footer ms-auto">
+      <%= link_to "詳細を見る", post, class: "post-footer-link", data: { turbo: false } %>
+    </div>
+  </div>
 </div>

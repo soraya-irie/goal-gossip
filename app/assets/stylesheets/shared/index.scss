@@ -90,7 +90,6 @@
   max-width: 900px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
-  position: relative;
 }
 
 .post-container:hover {
@@ -136,12 +135,6 @@
 
 .post-comment {
   margin: 16px;
-}
-
-.post-footer {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
 }
 
 .post-footer-link {
