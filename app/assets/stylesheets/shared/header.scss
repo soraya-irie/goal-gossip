@@ -32,44 +32,45 @@
 }
 
 .nav-item {
-  margin: 0 0 0 15px;
   font-size: 14px;
+  padding: 5px 8px;
 }
 
-.menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.nav-item:hover {
+  background-color: #991111;
 }
 
-.menu {
-  display: inline-block;
-  position: relative;
+.dropdown button {
+  background-color: #bc1616;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
 }
 
-.submenu {
+.dropdown a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+.dropdown .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
   background-color: #bc1616;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.menu:hover .submenu {
-  display: block;
-  min-width: 150px;
-  max-width: max-content;
+.dropdown button:hover {
+  background-color: #991111;
 }
 
-.submenu li {
+.dropdown:hover .dropdown-content {
   display: block;
-  margin: 15px auto;
 }
 
-.menu a, .submenu a {
-  display: block;
-  text-decoration: none;
+.dropdown a:hover {
+  background-color: #991111;
 }
 
 .avatar {

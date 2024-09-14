@@ -36,6 +36,7 @@
 .background-image {
   background-image: url(image_path("soccer-field.avif"));
   background-position: center;
+  background-attachment: fixed;
   padding: 20px;
 }
 

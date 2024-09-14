@@ -2,14 +2,14 @@
   <h1 class="site-title"><%= link_to "Goal gossip", root_path, class: "site-title-link" %></h1>
   <nav class="main-nav">
     <ul class="nav-list">
-      <li class="nav-item menu">
-        <%= link_to "Jリーグ情報", "#", class: "text-white" %>
-        <ul class="submenu">
-          <li class="nav-item"><%= link_to "順位表", j_league_standings_path, class: "text-white" %></li>
-          <li class="nav-item"><%= link_to "クラブ一覧", j_league_teams_path, class: "text-white" %></li>
-          <li class="nav-item"><%= link_to "スタジアム検索", j_league_search_path, class: "text-white", data: { turbo: false } %></li>
-        </ul>
-      </li>
+      <div class="dropdown">
+        <button>Jリーグ情報</button>
+        <div class="dropdown-content">
+          <%= link_to "順位表", j_league_standings_path %>
+          <%= link_to "クラブ一覧", j_league_teams_path %>
+          <%= link_to "スタジアム検索", j_league_search_path, data: { turbo: false } %>
+        </div>
+      </div>
       <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
       <% if user_signed_in? %>
         <li class="nav-item"><%= link_to "設定", edit_user_registration_path, class: "nav-link" %></li>
