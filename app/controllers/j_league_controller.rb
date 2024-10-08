@@ -10,7 +10,7 @@ class JLeagueController < ApplicationController
   end
 
   def teams
-    uri = URI("https://api.football-data-api.com/league-teams?key=#{ENV['FOOTYSTATS_API_KEY']}&season_id=10994")
+    uri = URI("https://api.football-data-api.com/league-teams?key=#{ENV['FOOTYSTATS_API_KEY']}&season_id=10994&include=stats")
     response = Net::HTTP.get(uri)
     results = JSON.parse(response)
     @teams = results['data']
