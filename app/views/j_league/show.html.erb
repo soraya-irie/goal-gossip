@@ -1,9 +1,9 @@
 <div class="background-image">
-  <%= render 'shared/breadcrumbs', title: @team['name'] %>
+  <%= render 'shared/breadcrumbs', title: @team['stats']['name_jp'] %>
   <div class="form-container">
     <h2 class="form-title">
       <%= image_tag(@team['image'], size: "50x50") %>
-      <%= @team['full_name'] %>
+      <%= @team['stats']['name_jp'] %>
     </h2>
     <div class="field">
       <%= label_tag :stadium_name, "ホームスタジアム" %>
