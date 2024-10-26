@@ -1,15 +1,14 @@
 document.addEventListener('turbo:load', initMap);
-document.addEventListener('turbo:load', createRegionButtons);
 
 const regions = {
-  hokkaido: ['北海道'],
-  tohoku: ['青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県'],
-  kanto: ['茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県'],
-  chubu: ['新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県'],
-  kinki: ['三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県'],
-  chugoku: ['鳥取県', '島根県', '岡山県', '広島県', '山口県'],
-  shikoku: ['徳島県', '香川県', '愛媛県', '高知県'],
-  kyushu: ['福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県']
+  '北海道': ['北海道'],
+  '東北': ['青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県'],
+  '関東': ['茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県'],
+  '中部': ['新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県'],
+  '近畿': ['三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県'],
+  '中国': ['鳥取県', '島根県', '岡山県', '広島県', '山口県'],
+  '四国': ['徳島県', '香川県', '愛媛県', '高知県'],
+  '九州・沖縄': ['福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県']
 };
 
 let map;
@@ -22,43 +21,23 @@ async function initMap() {
     zoom: 6,
     mapId: '<%= ENV["GOOGLE_MAPS_MAP_ID"] %>',
   });
-}
 
-function createRegionButtons() {
-  const container = document.getElementById('region-buttons');
-  container.innerHTML = '';
-  for (const region in regions) {
-    const button = document.createElement('button');
-    button.textContent = getRegionName(region);
-    button.className = 'region-button';
-    button.onclick = () => showPrefectures(region);
-    container.appendChild(button);
-  }
-}
-
-function getRegionName(region) {
-  const regionNames = {
-    hokkaido: '北海道',
-    tohoku: '東北',
-    kanto: '関東',
-    chubu: '中部',
-    kinki: '近畿',
-    chugoku: '中国',
-    shikoku: '四国',
-    kyushu: '九州・沖縄'
-  };
-  return regionNames[region];
+  document.querySelectorAll('.region-button').forEach(button => {
+    button.addEventListener('click', () => {
+      showPrefectures(button.textContent);
+    });
+  });
 }
 
 function showPrefectures(region) {
-  const container = document.getElementById('prefecture-buttons');
-  container.innerHTML = '';
+  const prefectureButtons = document.getElementById('prefecture-buttons');
+  prefectureButtons.innerHTML = '';
   regions[region].forEach(prefecture => {
-    const button = document.createElement('button');
-    button.textContent = prefecture;
-    button.className = 'prefecture-button';
-    button.onclick = () => searchStadiums(prefecture);
-    container.appendChild(button);
+    const prefectureButton = document.createElement('prefecture-button');
+    prefectureButton.textContent = prefecture;
+    prefectureButton.className = 'prefecture-button';
+    prefectureButton.onclick = () => searchStadiums(prefecture);
+    prefectureButtons.appendChild(prefectureButton);
   });
 }
 
