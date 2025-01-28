@@ -33,7 +33,7 @@ function showPrefectures(region) {
   const prefectureButtons = document.getElementById('prefecture-buttons');
   prefectureButtons.innerHTML = '';
   regions[region].forEach(prefecture => {
-    const prefectureButton = document.createElement('prefecture-button');
+    const prefectureButton = document.createElement('button');
     prefectureButton.textContent = prefecture;
     prefectureButton.className = 'prefecture-button';
     prefectureButton.onclick = () => searchStadiums(prefecture);
